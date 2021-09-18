@@ -9,6 +9,7 @@ require("dotenv").config();
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const profilesRouter = require('./routes/profile');
+const questionsRouter = require('./routes/questions');
 
 mongoose.connect("mongodb://localhost/community-forum",
 { useNewUrlParser : true, useUnifiedTopology : true },
@@ -27,5 +28,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/profile', profilesRouter);
+app.use('/api/questions', questionsRouter);
 
 module.exports = app;
